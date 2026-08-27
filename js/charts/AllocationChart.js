@@ -18,7 +18,7 @@ export class AllocationChart {
         }
 
         const allocationData = DonationService.getAllocationData();
-        const labels = allocationData.map(item => ChartService.wrapLabel(item.label, 16));
+        const labels = allocationData.map(item => `${item.label} (${item.percentage}%)`);
         const data = allocationData.map(item => item.percentage);
         const backgroundColor = allocationData.map(item => item.color);
 
@@ -31,21 +31,46 @@ export class AllocationChart {
                     data: data,
                     backgroundColor: backgroundColor,
                     borderWidth: 2,
-                    borderColor: '#ffffff'
+                    borderColor: '#ffffff',
+                    hoverOffset: 6
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
+                cutout: '62%',
+                layout: {
+                    padding: {
+                        top: 6,
+                        bottom: 12,
+                        left: 8,
+                        right: 8
+                    }
+                },
                 plugins: {
                     legend: {
                         position: 'bottom',
+                        align: 'center',
                         labels: {
-                            font: { family: ChartService.FONT_FAMILY, size: 11 },
-                            boxWidth: 12
+                            usePointStyle: true,
+                            pointStyle: 'circle',
+                            boxWidth: 8,
+                            boxHeight: 8,
+                            padding: 20,
+                            font: { 
+                                family: ChartService.FONT_FAMILY, 
+                                size: 12,
+                                weight: '500'
+                            }
                         }
                     },
-                    tooltip: ChartService.getStandardTooltipConfig()
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return ` ${context.label}`;
+                            }
+                        }
+                    }
                 }
             }
         });

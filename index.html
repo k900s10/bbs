@@ -1,36 +1,42 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>$app_title</title>
-    
+
     <!-- External Dependencies -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
+
     <!-- Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <!-- Modular Configuration & Styles -->
     <script src="js/config/tailwind.config.js"></script>
     <link rel="stylesheet" href="css/styles.css">
-    
+
     <!-- Application Entry Point (ES Module) -->
     <script type="module" src="js/app.js"></script>
 </head>
+
 <body class="bg-slate-50 text-slate-800 font-sans antialiased leading-relaxed">
 
     <!-- Header Navigation -->
     <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
         <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-3">
-                <span class="bg-emerald-600 text-white font-extrabold px-3 py-1 rounded-lg text-lg tracking-wider">$header_logo_text</span>
-                <span class="text-xs md:text-sm font-semibold text-slate-600 uppercase tracking-wide">$header_subtitle</span>
+                <span
+                    class="bg-emerald-600 text-white font-extrabold px-3 py-1 rounded-lg text-lg tracking-wider">$header_logo_text</span>
+                <span
+                    class="text-xs md:text-sm font-semibold text-slate-600 uppercase tracking-wide">$header_subtitle</span>
             </div>
-            <a href="#kalkulator-dampak" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs md:text-sm font-bold px-4 py-2 rounded-lg transition shadow-sm">
+            <a href="#kalkulator-dampak"
+                class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs md:text-sm font-bold px-4 py-2 rounded-lg transition shadow-sm">
                 $header_cta_button
             </a>
         </div>
@@ -39,16 +45,20 @@
     <main class="max-w-6xl mx-auto px-4 py-8 space-y-12">
 
         <!-- Hero Section -->
-        <section class="bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-950 text-white rounded-3xl p-6 md:p-12 shadow-xl relative overflow-hidden">
+        <section
+            class="bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-950 text-white rounded-3xl p-6 md:p-12 shadow-xl relative overflow-hidden">
             <div class="max-w-3xl relative z-10 space-y-4">
-                <div class="inline-flex items-center space-x-2 bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 px-3 py-1 rounded-full text-xs md:text-sm font-medium">
+                <div
+                    class="inline-flex items-center space-x-2 bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 px-3 py-1 rounded-full text-xs md:text-sm font-medium">
                     <span>$hero_badge</span>
                 </div>
                 <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight">
-                    $hero_title_prefix<span class="text-emerald-400 underline decoration-orange-500 decoration-4 underline-offset-4">$hero_title_highlight</span>$hero_title_suffix
+                    $hero_title_prefix<span
+                        class="text-emerald-400 underline decoration-orange-500 decoration-4 underline-offset-4">$hero_title_highlight</span>$hero_title_suffix
                 </h1>
                 <p class="text-slate-300 text-base md:text-lg leading-relaxed">
-                    $hero_description_prefix<strong class="text-amber-300">$hero_description_highlight</strong>$hero_description_suffix
+                    $hero_description_prefix<strong
+                        class="text-amber-300">$hero_description_highlight</strong>$hero_description_suffix
                 </p>
             </div>
 
@@ -86,7 +96,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="bg-red-50/70 border border-red-200 rounded-2xl p-6 relative overflow-hidden">
                     <div class="flex items-center space-x-3 mb-3">
-                        <span class="w-8 h-8 rounded-full bg-red-500 text-white font-bold flex items-center justify-center text-sm">✕</span>
+                        <span
+                            class="w-8 h-8 rounded-full bg-red-500 text-white font-bold flex items-center justify-center text-sm">✕</span>
                         <h3 class="text-lg font-bold text-red-950">$myths_heading</h3>
                     </div>
                     <ul class="space-y-3 text-sm text-red-900">
@@ -107,7 +118,8 @@
 
                 <div class="bg-emerald-50/70 border border-emerald-200 rounded-2xl p-6 relative overflow-hidden">
                     <div class="flex items-center space-x-3 mb-3">
-                        <span class="w-8 h-8 rounded-full bg-emerald-600 text-white font-bold flex items-center justify-center text-sm">✓</span>
+                        <span
+                            class="w-8 h-8 rounded-full bg-emerald-600 text-white font-bold flex items-center justify-center text-sm">✓</span>
                         <h3 class="text-lg font-bold text-emerald-950">$facts_heading</h3>
                     </div>
                     <ul class="space-y-3 text-sm text-emerald-900">
@@ -131,9 +143,10 @@
         <!-- Mission & Budget Allocation Section -->
         <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8 space-y-6">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                
+
                 <div class="lg:col-span-5 space-y-4">
-                    <div class="inline-block bg-amber-100 text-amber-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                    <div
+                        class="inline-block bg-amber-100 text-amber-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                         $mission_badge
                     </div>
                     <h2 class="text-2xl md:text-3xl font-bold text-slate-900 leading-tight">
@@ -142,13 +155,16 @@
                     <p class="text-slate-600 text-sm leading-relaxed">
                         $mission_description
                     </p>
-                    
+
                     <div class="space-y-2 pt-2">
                         <p class="text-xs font-bold text-slate-500 uppercase tracking-wide">$beneficiaries_title</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="bg-slate-100 text-slate-700 text-xs px-3 py-1.5 rounded-lg border border-slate-200 font-medium">$beneficiary_item_1</span>
-                            <span class="bg-slate-100 text-slate-700 text-xs px-3 py-1.5 rounded-lg border border-slate-200 font-medium">$beneficiary_item_2</span>
-                            <span class="bg-slate-100 text-slate-700 text-xs px-3 py-1.5 rounded-lg border border-slate-200 font-medium">$beneficiary_item_3</span>
+                            <span
+                                class="bg-slate-100 text-slate-700 text-xs px-3 py-1.5 rounded-lg border border-slate-200 font-medium">$beneficiary_item_1</span>
+                            <span
+                                class="bg-slate-100 text-slate-700 text-xs px-3 py-1.5 rounded-lg border border-slate-200 font-medium">$beneficiary_item_2</span>
+                            <span
+                                class="bg-slate-100 text-slate-700 text-xs px-3 py-1.5 rounded-lg border border-slate-200 font-medium">$beneficiary_item_3</span>
                         </div>
                     </div>
 
@@ -169,8 +185,8 @@
         </section>
 
         <!-- Impact Calculator & Progress Section -->
-        <section id="kalkulator-dampak" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            
+        <section id="kalkulator-dampak" class="grid grid-cols-1 lg:grid-cols-12 gap-6 scroll-mt-24">
+
             <div class="lg:col-span-7 bg-white rounded-2xl shadow-sm border border-slate-200 p-6 space-y-4">
                 <p class="text-xs text-slate-600">
                     $progress_desc
@@ -196,9 +212,11 @@
                 </div>
             </div>
 
-            <div class="lg:col-span-5 bg-gradient-to-br from-emerald-900 to-teal-950 text-white rounded-2xl p-6 shadow-md flex flex-col justify-between space-y-6">
+            <div
+                class="lg:col-span-5 bg-gradient-to-br from-emerald-900 to-teal-950 text-white rounded-2xl p-6 shadow-md flex flex-col justify-between space-y-6">
                 <div class="space-y-3">
-                    <div class="inline-block bg-emerald-500/30 text-emerald-300 text-xs font-bold px-3 py-1 rounded-full uppercase">
+                    <div
+                        class="inline-block bg-emerald-500/30 text-emerald-300 text-xs font-bold px-3 py-1 rounded-full uppercase">
                         $calc_badge
                     </div>
                     <h3 class="text-xl font-bold">$calc_title</h3>
@@ -225,7 +243,8 @@
                     </div>
                     <div class="flex items-center justify-between">
                         <span class="text-xs text-slate-300">$calc_label_target</span>
-                        <span id="impact-target" class="text-xs font-semibold text-emerald-300">$calc_default_target</span>
+                        <span id="impact-target"
+                            class="text-xs font-semibold text-emerald-300">$calc_default_target</span>
                     </div>
                 </div>
 
@@ -247,8 +266,10 @@
                     </p>
                 </div>
                 <div class="bg-slate-100 p-1 rounded-xl flex space-x-1">
-                    <button class="px-3 py-1.5 bg-white text-slate-800 text-xs font-bold rounded-lg shadow-sm">$history_tab_chart</button>
-                    <button data-action="view-audit" class="px-3 py-1.5 text-slate-600 hover:text-slate-900 text-xs font-semibold rounded-lg transition">$history_tab_audit</button>
+                    <button
+                        class="px-3 py-1.5 bg-white text-slate-800 text-xs font-bold rounded-lg shadow-sm">$history_tab_chart</button>
+                    <button data-action="view-audit"
+                        class="px-3 py-1.5 text-slate-600 hover:text-slate-900 text-xs font-semibold rounded-lg transition">$history_tab_audit</button>
                 </div>
             </div>
 
@@ -285,10 +306,12 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
-                
-                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-3 relative">
+
+                <div
+                    class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-3 relative">
                     <div class="flex items-center justify-between">
-                        <span class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 font-extrabold text-xs flex items-center justify-center">1</span>
+                        <span
+                            class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 font-extrabold text-xs flex items-center justify-center">1</span>
                         <span class="text-lg">📲</span>
                     </div>
                     <div>
@@ -298,9 +321,11 @@
                     <div class="text-right text-xs font-bold text-emerald-600">$journey_step_1_tag</div>
                 </div>
 
-                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-3 relative">
+                <div
+                    class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-3 relative">
                     <div class="flex items-center justify-between">
-                        <span class="w-7 h-7 rounded-full bg-sky-100 text-sky-800 font-extrabold text-xs flex items-center justify-center">2</span>
+                        <span
+                            class="w-7 h-7 rounded-full bg-sky-100 text-sky-800 font-extrabold text-xs flex items-center justify-center">2</span>
                         <span class="text-lg">📊</span>
                     </div>
                     <div>
@@ -310,9 +335,11 @@
                     <div class="text-right text-xs font-bold text-sky-600">$journey_step_2_tag</div>
                 </div>
 
-                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-3 relative">
+                <div
+                    class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-3 relative">
                     <div class="flex items-center justify-between">
-                        <span class="w-7 h-7 rounded-full bg-amber-100 text-amber-800 font-extrabold text-xs flex items-center justify-center">3</span>
+                        <span
+                            class="w-7 h-7 rounded-full bg-amber-100 text-amber-800 font-extrabold text-xs flex items-center justify-center">3</span>
                         <span class="text-lg">🍲</span>
                     </div>
                     <div>
@@ -322,9 +349,11 @@
                     <div class="text-right text-xs font-bold text-amber-600">$journey_step_3_tag</div>
                 </div>
 
-                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-3 relative">
+                <div
+                    class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-3 relative">
                     <div class="flex items-center justify-between">
-                        <span class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 font-extrabold text-xs flex items-center justify-center">4</span>
+                        <span
+                            class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-800 font-extrabold text-xs flex items-center justify-center">4</span>
                         <span class="text-lg">🤝</span>
                     </div>
                     <div>
@@ -334,9 +363,11 @@
                     <div class="text-right text-xs font-bold text-emerald-600">$journey_step_4_tag</div>
                 </div>
 
-                <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-3 relative">
+                <div
+                    class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-3 relative">
                     <div class="flex items-center justify-between">
-                        <span class="w-7 h-7 rounded-full bg-slate-900 text-white font-extrabold text-xs flex items-center justify-center">5</span>
+                        <span
+                            class="w-7 h-7 rounded-full bg-slate-900 text-white font-extrabold text-xs flex items-center justify-center">5</span>
                         <span class="text-lg">📢</span>
                     </div>
                     <div>
@@ -350,10 +381,12 @@
         </section>
 
         <!-- Trust & Official QRIS Info Section -->
-        <section class="bg-gradient-to-r from-emerald-900 to-slate-900 rounded-3xl p-6 md:p-10 text-white shadow-lg space-y-8">
+        <section
+            class="bg-gradient-to-r from-emerald-900 to-slate-900 rounded-3xl p-6 md:p-10 text-white shadow-lg space-y-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <div class="space-y-4">
-                    <div class="inline-block bg-white/10 text-emerald-300 text-xs font-bold px-3 py-1 rounded-full uppercase">
+                    <div
+                        class="inline-block bg-white/10 text-emerald-300 text-xs font-bold px-3 py-1 rounded-full uppercase">
                         $trust_badge
                     </div>
                     <h2 class="text-2xl md:text-3xl font-bold">$trust_title</h2>
@@ -361,7 +394,8 @@
                         $trust_description
                     </p>
                     <div class="pt-2 flex flex-wrap gap-3">
-                        <a href="https://indorelawan.org" target="_blank" rel="noopener" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs px-5 py-3 rounded-xl transition shadow-md inline-block">
+                        <a href="https://linktr.ee/bumibebassampah" target="_blank" rel="noopener"
+                            class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs px-5 py-3 rounded-xl transition shadow-md inline-block">
                             $trust_cta_button
                         </a>
                     </div>
@@ -370,11 +404,13 @@
                 <div class="bg-white text-slate-800 p-6 rounded-2xl shadow-xl space-y-4">
                     <div class="flex items-center justify-between border-b border-slate-100 pb-3">
                         <span class="font-bold text-sm text-slate-900">$qris_card_title</span>
-                        <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2.5 py-1 rounded">$qris_card_tag</span>
+                        <span
+                            class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2.5 py-1 rounded">$qris_card_tag</span>
                     </div>
-                    
+
                     <div class="bg-slate-50 p-4 rounded-xl border border-dashed border-slate-300 text-center space-y-2">
-                        <div class="w-32 h-32 bg-slate-800 mx-auto rounded-lg flex items-center justify-center text-white font-mono text-xs text-center p-2">
+                        <div
+                            class="w-32 h-32 bg-slate-800 mx-auto rounded-lg flex items-center justify-center text-white font-mono text-xs text-center p-2">
                             $qris_code_placeholder
                         </div>
                         <p class="text-xs font-bold text-slate-700">$qris_account_name</p>
@@ -407,4 +443,5 @@
     </footer>
 
 </body>
+
 </html>

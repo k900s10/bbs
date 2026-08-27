@@ -1,18 +1,24 @@
 /* Custom styles for BBS transparency app */
 
+html {
+    scroll-behavior: smooth;
+}
+
+
 .chart-container {
     position: relative;
     width: 100%;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    height: 320px;
-    max-height: 400px;
+    min-height: 300px;
+    height: 350px;
+    max-height: 420px;
 }
 
 @media (min-width: 768px) {
     .chart-container {
-        height: 360px;
+        height: 380px;
     }
 }
 
