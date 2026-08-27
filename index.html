@@ -3,135 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transparansi Donasi BBS - Ke Mana Perginya Rp20.000 Kamu?</title>
+    <title>$app_title</title>
+    
+    <!-- External Dependencies -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            emerald: '#059669',
-                            emeraldDark: '#047857',
-                            orange: '#ea580c',
-                            orangeLight: '#ffedd5',
-                            sky: '#0284c7',
-                            slateDark: '#0f172a',
-                            slateBg: '#f8fafc'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 320px;
-            max-height: 400px;
-        }
-        @media (min-width: 768px) {
-            .chart-container {
-                height: 360px;
-            }
-        }
-        .progress-bar-fill {
-            transition: width 1s ease-in-out;
-        }
-    </style>
+    <!-- Modular Configuration & Styles -->
+    <script src="js/config/tailwind.config.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Application Entry Point (ES Module) -->
+    <script type="module" src="js/app.js"></script>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased leading-relaxed">
 
+    <!-- Header Navigation -->
     <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
         <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-3">
-                <span class="bg-emerald-600 text-white font-extrabold px-3 py-1 rounded-lg text-lg tracking-wider">BBS</span>
-                <span class="text-xs md:text-sm font-semibold text-slate-600 uppercase tracking-wide">Transparansi Donasi Relawan</span>
+                <span class="bg-emerald-600 text-white font-extrabold px-3 py-1 rounded-lg text-lg tracking-wider">$header_logo_text</span>
+                <span class="text-xs md:text-sm font-semibold text-slate-600 uppercase tracking-wide">$header_subtitle</span>
             </div>
             <a href="#kalkulator-dampak" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs md:text-sm font-bold px-4 py-2 rounded-lg transition shadow-sm">
-                Cek Dampak Donasi ➔
+                $header_cta_button
             </a>
         </div>
     </header>
 
     <main class="max-w-6xl mx-auto px-4 py-8 space-y-12">
 
+        <!-- Hero Section -->
         <section class="bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-950 text-white rounded-3xl p-6 md:p-12 shadow-xl relative overflow-hidden">
             <div class="max-w-3xl relative z-10 space-y-4">
                 <div class="inline-flex items-center space-x-2 bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 px-3 py-1 rounded-full text-xs md:text-sm font-medium">
-                    <span>🌱 Inisiatif Sosial BBS & Rantang Kasih</span>
+                    <span>$hero_badge</span>
                 </div>
                 <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight">
-                    Ke Mana Perginya Donasi <span class="text-emerald-400 underline decoration-orange-500 decoration-4 underline-offset-4">Rp20.000</span> Kamu?
+                    $hero_title_prefix<span class="text-emerald-400 underline decoration-orange-500 decoration-4 underline-offset-4">$hero_title_highlight</span>$hero_title_suffix
                 </h1>
                 <p class="text-slate-300 text-base md:text-lg leading-relaxed">
-                    Lebih dari sekadar aksi bersih-bersih lingkungan, kepedulianmu mendukung pengenalan dan penggunaan <strong class="text-amber-300">pangan lokal serta sejarah kuliner Nusantara</strong> untuk disalurkan kepada masyarakat yang membutuhkan.
+                    $hero_description_prefix<strong class="text-amber-300">$hero_description_highlight</strong>$hero_description_suffix
                 </p>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-6 border-t border-slate-700/60 relative z-10">
                 <div class="bg-white/5 backdrop-blur-sm p-4 rounded-xl border border-white/10">
-                    <p class="text-xs text-slate-400 font-medium">Status Donasi</p>
-                    <p class="text-lg md:text-xl font-bold text-emerald-400 mt-1">100% Sukarela</p>
-                    <p class="text-[11px] text-slate-400 mt-1">Tanpa Paksaan / Syarat</p>
+                    <p class="text-xs text-slate-400 font-medium">$stat_donation_status_label</p>
+                    <p class="text-lg md:text-xl font-bold text-emerald-400 mt-1">$stat_donation_status_value</p>
+                    <p class="text-[11px] text-slate-400 mt-1">$stat_donation_status_desc</p>
                 </div>
                 <div class="bg-white/5 backdrop-blur-sm p-4 rounded-xl border border-white/10">
-                    <p class="text-xs text-slate-400 font-medium">Biaya Registrasi</p>
-                    <p class="text-lg md:text-xl font-bold text-orange-400 mt-1">Rp 0 (GRATIS)</p>
-                    <p class="text-[11px] text-slate-400 mt-1">Bisa Ikut Walau Rp0</p>
+                    <p class="text-xs text-slate-400 font-medium">$stat_reg_fee_label</p>
+                    <p class="text-lg md:text-xl font-bold text-orange-400 mt-1">$stat_reg_fee_value</p>
+                    <p class="text-[11px] text-slate-400 mt-1">$stat_reg_fee_desc</p>
                 </div>
                 <div class="bg-white/5 backdrop-blur-sm p-4 rounded-xl border border-white/10">
-                    <p class="text-xs text-slate-400 font-medium">Misi Program</p>
-                    <p class="text-lg md:text-xl font-bold text-amber-300 mt-1">Rantang Kasih</p>
-                    <p class="text-[11px] text-slate-400 mt-1">Pangan Lokal Nusantara</p>
+                    <p class="text-xs text-slate-400 font-medium">$stat_program_mission_label</p>
+                    <p class="text-lg md:text-xl font-bold text-amber-300 mt-1">$stat_program_mission_value</p>
+                    <p class="text-[11px] text-slate-400 mt-1">$stat_program_mission_desc</p>
                 </div>
                 <div class="bg-white/5 backdrop-blur-sm p-4 rounded-xl border border-white/10">
-                    <p class="text-xs text-slate-400 font-medium">Siklus Laporan</p>
-                    <p class="text-lg md:text-xl font-bold text-sky-400 mt-1">Setiap Bulan</p>
-                    <p class="text-[11px] text-slate-400 mt-1">Transparan & Terbuka</p>
+                    <p class="text-xs text-slate-400 font-medium">$stat_report_cycle_label</p>
+                    <p class="text-lg md:text-xl font-bold text-sky-400 mt-1">$stat_report_cycle_value</p>
+                    <p class="text-[11px] text-slate-400 mt-1">$stat_report_cycle_desc</p>
                 </div>
             </div>
         </section>
 
+        <!-- Myths vs Facts Section -->
         <section class="space-y-6">
             <div class="text-center max-w-2xl mx-auto">
-                <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Klarifikasi Penting: Mitos vs Fakta</h2>
-                <p class="text-slate-600 mt-2 text-sm md:text-base">
-                    Kami mendengar pertanyaan relawan: <i>"Kok bersih-bersih bayar?"</i> Mari kita luruskan kesalahpahaman ini agar setiap aksi kita dilandasi rasa percaya.
-                </p>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-900">$myths_facts_title</h2>
+                <p class="text-slate-600 mt-2 text-sm md:text-base">$myths_facts_subtitle</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="bg-red-50/70 border border-red-200 rounded-2xl p-6 relative overflow-hidden">
                     <div class="flex items-center space-x-3 mb-3">
                         <span class="w-8 h-8 rounded-full bg-red-500 text-white font-bold flex items-center justify-center text-sm">✕</span>
-                        <h3 class="text-lg font-bold text-red-950">Mitos / Kesalahan Persepsi</h3>
+                        <h3 class="text-lg font-bold text-red-950">$myths_heading</h3>
                     </div>
                     <ul class="space-y-3 text-sm text-red-900">
                         <li class="flex items-start space-x-2">
                             <span class="text-red-500 font-bold">•</span>
-                            <span>Rp20.000 adalah tiket masuk atau biaya wajib pendaftaran aksi bersih-bersih.</span>
+                            <span>$myth_item_1</span>
                         </li>
                         <li class="flex items-start space-x-2">
                             <span class="text-red-500 font-bold">•</span>
-                            <span>Relawan yang tidak berdonasi tidak diperbolehkan bergabung dalam kegiatan.</span>
+                            <span>$myth_item_2</span>
                         </li>
                         <li class="flex items-start space-x-2">
                             <span class="text-red-500 font-bold">•</span>
-                            <span>Uang donasi digunakan untuk komersial atau operasional internal panitia.</span>
+                            <span>$myth_item_3</span>
                         </li>
                     </ul>
                 </div>
@@ -139,57 +108,58 @@
                 <div class="bg-emerald-50/70 border border-emerald-200 rounded-2xl p-6 relative overflow-hidden">
                     <div class="flex items-center space-x-3 mb-3">
                         <span class="w-8 h-8 rounded-full bg-emerald-600 text-white font-bold flex items-center justify-center text-sm">✓</span>
-                        <h3 class="text-lg font-bold text-emerald-950">Fakta Sebenarnya</h3>
+                        <h3 class="text-lg font-bold text-emerald-950">$facts_heading</h3>
                     </div>
                     <ul class="space-y-3 text-sm text-emerald-900">
                         <li class="flex items-start space-x-2">
                             <span class="text-emerald-600 font-bold">•</span>
-                            <span><strong>Aksi Bersih-Bersih 100% GRATIS.</strong> Siapa saja boleh ikut tanpa syarat membayar.</span>
+                            <span>$fact_item_1</span>
                         </li>
                         <li class="flex items-start space-x-2">
                             <span class="text-emerald-600 font-bold">•</span>
-                            <span>Rp20.000 via QRIS adalah <strong>donasi sukarela terpisah</strong> untuk disalurkan ke program sosial lain.</span>
+                            <span>$fact_item_2</span>
                         </li>
                         <li class="flex items-start space-x-2">
                             <span class="text-emerald-600 font-bold">•</span>
-                            <span>100% donasi dialokasikan untuk <strong>Program Rantang Kasih</strong> (Pangan lokal Nusantara bagi masyarakat yang membutuhkan).</span>
+                            <span>$fact_item_3</span>
                         </li>
                     </ul>
                 </div>
             </div>
         </section>
 
+        <!-- Mission & Budget Allocation Section -->
         <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8 space-y-6">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 
                 <div class="lg:col-span-5 space-y-4">
                     <div class="inline-block bg-amber-100 text-amber-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                        Misi Utama Program
+                        $mission_badge
                     </div>
                     <h2 class="text-2xl md:text-3xl font-bold text-slate-900 leading-tight">
-                        Program Rantang Kasih
+                        $mission_title
                     </h2>
                     <p class="text-slate-600 text-sm leading-relaxed">
-                        <strong>Rantang Kasih</strong> adalah inisiatif untuk mendukung pengenalan dan penggunaan <strong class="text-slate-900">pangan lokal serta sejarah kuliner Nusantara</strong>. Olahan pangan bergizi ini disalurkan secara langsung kepada masyarakat yang membutuhkan.
+                        $mission_description
                     </p>
                     
                     <div class="space-y-2 pt-2">
-                        <p class="text-xs font-bold text-slate-500 uppercase tracking-wide">Penerima Manfaat Program:</p>
+                        <p class="text-xs font-bold text-slate-500 uppercase tracking-wide">$beneficiaries_title</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="bg-slate-100 text-slate-700 text-xs px-3 py-1.5 rounded-lg border border-slate-200 font-medium">🤝 Masyarakat yang Membutuhkan</span>
-                            <span class="bg-slate-100 text-slate-700 text-xs px-3 py-1.5 rounded-lg border border-slate-200 font-medium">🥗 Keluarga Rawan Pangan & Gizi</span>
-                            <span class="bg-slate-100 text-slate-700 text-xs px-3 py-1.5 rounded-lg border border-slate-200 font-medium">👨‍👩‍👧‍👦 Pekerja Informal & Rentan</span>
+                            <span class="bg-slate-100 text-slate-700 text-xs px-3 py-1.5 rounded-lg border border-slate-200 font-medium">$beneficiary_item_1</span>
+                            <span class="bg-slate-100 text-slate-700 text-xs px-3 py-1.5 rounded-lg border border-slate-200 font-medium">$beneficiary_item_2</span>
+                            <span class="bg-slate-100 text-slate-700 text-xs px-3 py-1.5 rounded-lg border border-slate-200 font-medium">$beneficiary_item_3</span>
                         </div>
                     </div>
 
                     <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                        <p class="text-xs text-slate-500 font-semibold">Komitmen Transparansi Alokasi:</p>
-                        <p class="text-xs text-slate-600 mt-1">Setidaknya 85% dana dialokasikan langsung untuk bahan baku pangan lokal Nusantara dan kemasan ramah lingkungan, 10% logistik penyaluran, serta 5% cadangan darurat sosial.</p>
+                        <p class="text-xs text-slate-500 font-semibold">$transparency_commitment_title</p>
+                        <p class="text-xs text-slate-600 mt-1">$transparency_commitment_desc</p>
                     </div>
                 </div>
 
                 <div class="lg:col-span-7 flex flex-col items-center">
-                    <h3 class="text-sm font-bold text-slate-700 mb-2 text-center">Rincian Alokasi Dana Rantang Kasih (%)</h3>
+                    <h3 class="text-sm font-bold text-slate-700 mb-2 text-center">$allocation_chart_title</h3>
                     <div class="chart-container">
                         <canvas id="allocationChart"></canvas>
                     </div>
@@ -198,39 +168,30 @@
             </div>
         </section>
 
+        <!-- Impact Calculator & Progress Section -->
         <section id="kalkulator-dampak" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
             
             <div class="lg:col-span-7 bg-white rounded-2xl shadow-sm border border-slate-200 p-6 space-y-4">
-                <!-- <div class="flex justify-between items-start">
-                    <div>
-                        <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Target Penggalangan Aktif</span>
-                        <h3 class="text-xl font-bold text-slate-900 mt-1">Progres Donasi Bulan Ini</h3>
-                    </div>
-                    <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">
-                        Update Real-Time
-                    </span>
-                </div> -->
-                
                 <p class="text-xs text-slate-600">
-                    Berikut adalah ketercapaian target penggalangan dana Rantang Kasih untuk penyaluran pangan lokal bulan ini.
+                    $progress_desc
                 </p>
 
-                <div class="chart-container !h-64">
+                <div class="chart-container chart-container-compact">
                     <canvas id="progressChart"></canvas>
                 </div>
 
                 <div class="grid grid-cols-3 gap-2 text-center pt-2 border-t border-slate-100">
                     <div class="bg-slate-50 p-2 rounded-lg">
-                        <p class="text-[11px] text-slate-500">Target Bulan Ini</p>
-                        <p class="text-sm font-bold text-slate-800">Rp 15.000.000</p>
+                        <p class="text-[11px] text-slate-500">$progress_target_label</p>
+                        <p class="text-sm font-bold text-slate-800">$progress_target_value</p>
                     </div>
                     <div class="bg-emerald-50 p-2 rounded-lg">
-                        <p class="text-[11px] text-emerald-700 font-medium">Terkumpul</p>
-                        <p class="text-sm font-bold text-emerald-700">Rp 11.250.000</p>
+                        <p class="text-[11px] text-emerald-700 font-medium">$progress_collected_label</p>
+                        <p class="text-sm font-bold text-emerald-700">$progress_collected_value</p>
                     </div>
                     <div class="bg-orange-50 p-2 rounded-lg">
-                        <p class="text-[11px] text-orange-700 font-medium">Kekurangan</p>
-                        <p class="text-sm font-bold text-orange-700">Rp 3.750.000</p>
+                        <p class="text-[11px] text-orange-700 font-medium">$progress_remaining_label</p>
+                        <p class="text-sm font-bold text-orange-700">$progress_remaining_value</p>
                     </div>
                 </div>
             </div>
@@ -238,63 +199,56 @@
             <div class="lg:col-span-5 bg-gradient-to-br from-emerald-900 to-teal-950 text-white rounded-2xl p-6 shadow-md flex flex-col justify-between space-y-6">
                 <div class="space-y-3">
                     <div class="inline-block bg-emerald-500/30 text-emerald-300 text-xs font-bold px-3 py-1 rounded-full uppercase">
-                        Kalkulator Dampak
+                        $calc_badge
                     </div>
-                    <h3 class="text-xl font-bold">Simulasi Nyata Donasimu</h3>
+                    <h3 class="text-xl font-bold">$calc_title</h3>
                     <p class="text-xs text-slate-300">
-                        Pilih nominal donasi untuk melihat seberapa besar porsi sajian pangan lokal Nusantara yang kamu kontribusikan bagi masyarakat yang membutuhkan.
+                        $calc_subtitle
                     </p>
                 </div>
 
                 <div class="space-y-2">
-                    <label class="text-xs text-slate-300 font-medium">Pilih Nominal Donasi:</label>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="setImpact(20000)" id="btn-20k" class="calc-btn bg-emerald-500 text-white font-bold py-2 rounded-xl text-xs transition border border-emerald-400">
-                            Rp 20.000
-                        </button>
-                        <button onclick="setImpact(50000)" id="btn-50k" class="calc-btn bg-white/10 hover:bg-white/20 text-white font-bold py-2 rounded-xl text-xs transition border border-white/10">
-                            Rp 50.000
-                        </button>
-                        <button onclick="setImpact(100000)" id="btn-100k" class="calc-btn bg-white/10 hover:bg-white/20 text-white font-bold py-2 rounded-xl text-xs transition border border-white/10">
-                            Rp 100.000
-                        </button>
+                    <label class="text-xs text-slate-300 font-medium">$calc_label_select</label>
+                    <div id="impact-btn-container" class="grid grid-cols-3 gap-2">
+                        <!-- Populated dynamically by ImpactCalculatorUI -->
                     </div>
                 </div>
 
                 <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/15 space-y-3">
                     <div class="flex items-center justify-between border-b border-white/10 pb-2">
-                        <span class="text-xs text-slate-300">Porsi Kuliner Pangan Lokal:</span>
-                        <span id="impact-meals" class="text-xl font-extrabold text-amber-300">1 Porsi Lengkap</span>
+                        <span class="text-xs text-slate-300">$calc_label_meals</span>
+                        <span id="impact-meals" class="text-xl font-extrabold text-amber-300">$calc_default_meals</span>
                     </div>
                     <div class="flex items-center justify-between border-b border-white/10 pb-2">
-                        <span class="text-xs text-slate-300">Menu Kuliner Nusantara:</span>
-                        <span id="impact-desc" class="text-xs font-semibold text-white">Olahan Pangan Lokal & Nutrisi Seimbang</span>
+                        <span class="text-xs text-slate-300">$calc_label_desc</span>
+                        <span id="impact-desc" class="text-xs font-semibold text-white">$calc_default_desc</span>
                     </div>
                     <div class="flex items-center justify-between">
-                        <span class="text-xs text-slate-300">Penerima Manfaat:</span>
-                        <span id="impact-target" class="text-xs font-semibold text-emerald-300">1 Orang / Warga Membutuhkan</span>
+                        <span class="text-xs text-slate-300">$calc_label_target</span>
+                        <span id="impact-target" class="text-xs font-semibold text-emerald-300">$calc_default_target</span>
                     </div>
                 </div>
 
                 <p class="text-[11px] text-slate-400 text-center italic">
-                    *Estimasi standar biaya 1 porsi makanan berbasis pangan lokal Nusantara = Rp20.000.
+                    $calc_disclaimer
                 </p>
             </div>
 
         </section>
 
+        <!-- Historical Transparency Report Section -->
         <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8 space-y-6">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <span class="text-xs font-bold text-sky-600 uppercase tracking-wider">Rekapitulasi Bulanan</span>
-                    <h2 class="text-2xl font-bold text-slate-900 mt-1">Laporan Historis Transparansi</h2>
+                    <span class="text-xs font-bold text-sky-600 uppercase tracking-wider">$history_badge</span>
+                    <h2 class="text-2xl font-bold text-slate-900 mt-1">$history_title</h2>
                     <p class="text-xs text-slate-600 mt-1">
-                        Rekap bulanan alokasi donasi relawan dan sisa saldo terdistribusi secara terbuka.
+                        $history_subtitle
                     </p>
                 </div>
                 <div class="bg-slate-100 p-1 rounded-xl flex space-x-1">
-                    <button class="px-3 py-1.5 bg-white text-slate-800 text-xs font-bold rounded-lg shadow-sm">Grafik Historis</button>
-                    <button onclick="toggleAuditDetails()" class="px-3 py-1.5 text-slate-600 hover:text-slate-900 text-xs font-semibold rounded-lg">Rincian Catatan</button>
+                    <button class="px-3 py-1.5 bg-white text-slate-800 text-xs font-bold rounded-lg shadow-sm">$history_tab_chart</button>
+                    <button data-action="view-audit" class="px-3 py-1.5 text-slate-600 hover:text-slate-900 text-xs font-semibold rounded-lg transition">$history_tab_audit</button>
                 </div>
             </div>
 
@@ -306,53 +260,27 @@
                 <table class="w-full text-left text-xs text-slate-700">
                     <thead class="bg-slate-50 text-slate-900 font-bold uppercase tracking-wider">
                         <tr>
-                            <th class="p-3 rounded-l-lg">Periode</th>
-                            <th class="p-3">Total Terkumpul</th>
-                            <th class="p-3">Alokasi Rantang Kasih</th>
-                            <th class="p-3">Porsi Disalurkan</th>
-                            <th class="p-3 rounded-r-lg">Sisa Saldo Kas</th>
+                            <th class="p-3 rounded-l-lg">$table_header_period</th>
+                            <th class="p-3">$table_header_total_collected</th>
+                            <th class="p-3">$table_header_allocation</th>
+                            <th class="p-3">$table_header_portions</th>
+                            <th class="p-3 rounded-r-lg">$table_header_balance</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-slate-100">
-                        <tr class="hover:bg-slate-50/80">
-                            <td class="p-3 font-semibold text-slate-900">Mei 2026</td>
-                            <td class="p-3 text-emerald-700 font-medium">Rp 12.500.000</td>
-                            <td class="p-3 text-slate-600">Rp 12.000.000</td>
-                            <td class="p-3 font-semibold text-slate-800">600 Porsi Pangan Lokal</td>
-                            <td class="p-3 text-slate-500">Rp 500.000</td>
-                        </tr>
-                        <tr class="hover:bg-slate-50/80">
-                            <td class="p-3 font-semibold text-slate-900">Juni 2026</td>
-                            <td class="p-3 text-emerald-700 font-medium">Rp 14.200.000</td>
-                            <td class="p-3 text-slate-600">Rp 14.000.000</td>
-                            <td class="p-3 font-semibold text-slate-800">700 Porsi Pangan Lokal</td>
-                            <td class="p-3 text-slate-500">Rp 700.000</td>
-                        </tr>
-                        <tr class="hover:bg-slate-50/80">
-                            <td class="p-3 font-semibold text-slate-900">Juli 2026</td>
-                            <td class="p-3 text-emerald-700 font-medium">Rp 16.000.000</td>
-                            <td class="p-3 text-slate-600">Rp 15.500.000</td>
-                            <td class="p-3 font-semibold text-slate-800">775 Porsi Pangan Lokal</td>
-                            <td class="p-3 text-slate-500">Rp 1.000.000</td>
-                        </tr>
-                        <tr class="bg-emerald-50/50 font-bold">
-                            <td class="p-3 text-emerald-950">Agustus 2026 (Berjalan)</td>
-                            <td class="p-3 text-emerald-700">Rp 11.250.000</td>
-                            <td class="p-3 text-slate-600">Rp 10.000.000</td>
-                            <td class="p-3 text-emerald-900">500 Porsi (Progres)</td>
-                            <td class="p-3 text-emerald-800">Rp 2.250.000</td>
-                        </tr>
+                    <tbody id="audit-table-body" class="divide-y divide-slate-100">
+                        <!-- Populated dynamically by AuditTableUI from DonationService -->
                     </tbody>
                 </table>
             </div>
         </section>
 
+        <!-- Process / Donation Journey Section -->
         <section class="space-y-6">
             <div class="text-center max-w-2xl mx-auto">
-                <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Alur Transparansi</span>
-                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mt-1">Siklus Perjalanan Donasimu</h2>
+                <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">$journey_badge</span>
+                <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mt-1">$journey_title</h2>
                 <p class="text-slate-600 text-sm mt-1">
-                    Bagaimana donasi sukarela Rp20.000 mengalir dari QRIS hingga diolah menjadi kuliner Nusantara bergizi bagi warga yang membutuhkan.
+                    $journey_subtitle
                 </p>
             </div>
 
@@ -364,10 +292,10 @@
                         <span class="text-lg">📲</span>
                     </div>
                     <div>
-                        <h4 class="font-bold text-slate-900 text-sm">Donasi QRIS</h4>
-                        <p class="text-xs text-slate-500 mt-1">Relawan melakukan scan QRIS Rp20.000 secara sukarela saat pendaftaran atau di lokasi.</p>
+                        <h4 class="font-bold text-slate-900 text-sm">$journey_step_1_title</h4>
+                        <p class="text-xs text-slate-500 mt-1">$journey_step_1_desc</p>
                     </div>
-                    <div class="text-right text-xs font-bold text-emerald-600">Opsional & Sukarela</div>
+                    <div class="text-right text-xs font-bold text-emerald-600">$journey_step_1_tag</div>
                 </div>
 
                 <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-3 relative">
@@ -376,10 +304,10 @@
                         <span class="text-lg">📊</span>
                     </div>
                     <div>
-                        <h4 class="font-bold text-slate-900 text-sm">Pencatatan Kas</h4>
-                        <p class="text-xs text-slate-500 mt-1">Dana terdata otomatis masuk ke dalam rekening khusus penggalangan sosial BBS.</p>
+                        <h4 class="font-bold text-slate-900 text-sm">$journey_step_2_title</h4>
+                        <p class="text-xs text-slate-500 mt-1">$journey_step_2_desc</p>
                     </div>
-                    <div class="text-right text-xs font-bold text-sky-600">Kumpulan Rekening Sosial</div>
+                    <div class="text-right text-xs font-bold text-sky-600">$journey_step_2_tag</div>
                 </div>
 
                 <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-3 relative">
@@ -388,10 +316,10 @@
                         <span class="text-lg">🍲</span>
                     </div>
                     <div>
-                        <h4 class="font-bold text-slate-900 text-sm">Olahan Pangan Lokal</h4>
-                        <p class="text-xs text-slate-500 mt-1">Pengadaan bahan segar pangan lokal & pengolahan hidangan sejarah kuliner Nusantara.</p>
+                        <h4 class="font-bold text-slate-900 text-sm">$journey_step_3_title</h4>
+                        <p class="text-xs text-slate-500 mt-1">$journey_step_3_desc</p>
                     </div>
-                    <div class="text-right text-xs font-bold text-amber-600">Resep Kuliner Nusantara</div>
+                    <div class="text-right text-xs font-bold text-amber-600">$journey_step_3_tag</div>
                 </div>
 
                 <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-3 relative">
@@ -400,10 +328,10 @@
                         <span class="text-lg">🤝</span>
                     </div>
                     <div>
-                        <h4 class="font-bold text-slate-900 text-sm">Penyaluran Warga</h4>
-                        <p class="text-xs text-slate-500 mt-1">Distribusi langsung makanan siap santap kepada masyarakat yang membutuhkan.</p>
+                        <h4 class="font-bold text-slate-900 text-sm">$journey_step_4_title</h4>
+                        <p class="text-xs text-slate-500 mt-1">$journey_step_4_desc</p>
                     </div>
-                    <div class="text-right text-xs font-bold text-emerald-600">Langsung Tepat Sasaran</div>
+                    <div class="text-right text-xs font-bold text-emerald-600">$journey_step_4_tag</div>
                 </div>
 
                 <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between space-y-3 relative">
@@ -412,54 +340,55 @@
                         <span class="text-lg">📢</span>
                     </div>
                     <div>
-                        <h4 class="font-bold text-slate-900 text-sm">Laporan Publik</h4>
-                        <p class="text-xs text-slate-500 mt-1">Publikasi rekapitulasi dana & foto kegiatan di WhatsApp grup relawan & media sosial.</p>
+                        <h4 class="font-bold text-slate-900 text-sm">$journey_step_5_title</h4>
+                        <p class="text-xs text-slate-500 mt-1">$journey_step_5_desc</p>
                     </div>
-                    <div class="text-right text-xs font-bold text-slate-900">Rekap Tiap Bulan</div>
+                    <div class="text-right text-xs font-bold text-slate-900">$journey_step_5_tag</div>
                 </div>
 
             </div>
         </section>
 
+        <!-- Trust & Official QRIS Info Section -->
         <section class="bg-gradient-to-r from-emerald-900 to-slate-900 rounded-3xl p-6 md:p-10 text-white shadow-lg space-y-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <div class="space-y-4">
                     <div class="inline-block bg-white/10 text-emerald-300 text-xs font-bold px-3 py-1 rounded-full uppercase">
-                        Komitmen Kepercayaan
+                        $trust_badge
                     </div>
-                    <h2 class="text-2xl md:text-3xl font-bold">Bersama BBS, Transparansi adalah Prioritas Utama</h2>
+                    <h2 class="text-2xl md:text-3xl font-bold">$trust_title</h2>
                     <p class="text-slate-300 text-sm leading-relaxed">
-                        Kami percaya bahwa aksi sosial yang bertahan lama dibangun di atas kepercayaan relawan. Kami berkomitmen menyajikan data sejelas mungkin agar kamu selalu bangga menjadi bagian dari perubahan positif.
+                        $trust_description
                     </p>
                     <div class="pt-2 flex flex-wrap gap-3">
                         <a href="https://indorelawan.org" target="_blank" rel="noopener" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs px-5 py-3 rounded-xl transition shadow-md inline-block">
-                            Bergabung Relawan di Indorelawan ➔
+                            $trust_cta_button
                         </a>
                     </div>
                 </div>
 
                 <div class="bg-white text-slate-800 p-6 rounded-2xl shadow-xl space-y-4">
                     <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-                        <span class="font-bold text-sm text-slate-900">Informasi Donasi Resmi</span>
-                        <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2.5 py-1 rounded">QRIS NBO / BBS</span>
+                        <span class="font-bold text-sm text-slate-900">$qris_card_title</span>
+                        <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2.5 py-1 rounded">$qris_card_tag</span>
                     </div>
                     
                     <div class="bg-slate-50 p-4 rounded-xl border border-dashed border-slate-300 text-center space-y-2">
                         <div class="w-32 h-32 bg-slate-800 mx-auto rounded-lg flex items-center justify-center text-white font-mono text-xs text-center p-2">
-                            [ QRIS CODE OFFICIAL BBS ]
+                            $qris_code_placeholder
                         </div>
-                        <p class="text-xs font-bold text-slate-700">Scan QRIS atas nama: Inisiatif Sosial BBS</p>
-                        <p class="text-[11px] text-slate-500">Nominal Disarankan: Rp 20.000 (Sukarela)</p>
+                        <p class="text-xs font-bold text-slate-700">$qris_account_name</p>
+                        <p class="text-[11px] text-slate-500">$qris_suggested_amount</p>
                     </div>
 
                     <div class="text-[11px] text-slate-500 space-y-1">
                         <p class="flex items-center space-x-1">
                             <span class="text-emerald-600 font-bold">✓</span>
-                            <span>Tidak berdonasi? Kamu <strong>tetap disambut hangat</strong> untuk ikut aksi bersih-bersih!</span>
+                            <span>$qris_note_1</span>
                         </p>
                         <p class="flex items-center space-x-1">
                             <span class="text-emerald-600 font-bold">✓</span>
-                            <span>Laporan lengkap dikirim berkala di WhatsApp Group Relawan.</span>
+                            <span>$qris_note_2</span>
                         </p>
                     </div>
                 </div>
@@ -468,240 +397,14 @@
 
     </main>
 
+    <!-- Footer -->
     <footer class="bg-white border-t border-slate-200 mt-16 py-8 text-center text-slate-500 text-xs">
         <div class="max-w-6xl mx-auto px-4 space-y-2">
-            <p class="font-bold text-slate-700">Bersama Bersih-Bersih (BBS) & Program Rantang Kasih</p>
-            <p>Bersihkan Lingkungan, Lestarikan Pangan Lokal Nusantara — Didukung penuh oleh Relawan Peduli Lingkungan & Sosial.</p>
-            <p class="text-slate-400 text-[11px] pt-2">© 2026 BBS Community. Hak Cipta Dilindungi Undang-Undang.</p>
+            <p class="font-bold text-slate-700">$footer_title</p>
+            <p>$footer_description</p>
+            <p class="text-slate-400 text-[11px] pt-2">$footer_copyright</p>
         </div>
     </footer>
 
-    <script>
-        function wrapLabel(str, maxChars = 16) {
-            if (typeof str !== 'string' || str.length <= maxChars) return str;
-            const words = str.split(' ');
-            const lines = [];
-            let currentLine = '';
-            words.forEach(word => {
-                if ((currentLine + ' ' + word).trim().length > maxChars) {
-                    if (currentLine) lines.push(currentLine.trim());
-                    currentLine = word;
-                } else {
-                    currentLine += (currentLine ? ' ' : '') + word;
-                }
-            });
-            if (currentLine) lines.push(currentLine.trim());
-            return lines;
-        }
-
-        const standardTooltipCallback = {
-            plugins: {
-                tooltip: {
-                    callbacks: {
-                        title: function(tooltipItems) {
-                            const item = tooltipItems[0];
-                            let label = item.chart.data.labels[item.dataIndex];
-                            if (Array.isArray(label)) {
-                                return label.join(' ');
-                            } else {
-                                return label;
-                            }
-                        }
-                    }
-                }
-            }
-        };
-
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            const rawAllocationLabels = [
-                'Bahan Pangan Lokal & Gizi Utama',
-                'Kemasan Ramah Lingkungan',
-                'Logistik & Penyaluran Warga',
-                'Dana Cadangan Darurat Social'
-            ];
-            const processedAllocationLabels = rawAllocationLabels.map(l => wrapLabel(l, 16));
-
-            const ctxAllocation = document.getElementById('allocationChart').getContext('2d');
-            new Chart(ctxAllocation, {
-                type: 'doughnut',
-                data: {
-                    labels: processedAllocationLabels,
-                    datasets: [{
-                        data: [70, 15, 10, 5],
-                        backgroundColor: [
-                            '#059669',
-                            '#ea580c',
-                            '#0284c7',
-                            '#64748b'
-                        ],
-                        borderWidth: 2,
-                        borderColor: '#ffffff'
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                font: { family: 'Plus Jakarta Sans', size: 11 },
-                                boxWidth: 12
-                            }
-                        },
-                        tooltip: standardTooltipCallback.plugins.tooltip
-                    }
-                }
-            });
-
-            const rawProgressLabels = ['Bulan Agustus 2026'];
-            const processedProgressLabels = rawProgressLabels.map(l => wrapLabel(l, 16));
-
-            const ctxProgress = document.getElementById('progressChart').getContext('2d');
-            new Chart(ctxProgress, {
-                type: 'bar',
-                data: {
-                    labels: processedProgressLabels,
-                    datasets: [
-                        {
-                            label: 'Terkumpul (Rp 11.250.000)',
-                            data: [11250000],
-                            backgroundColor: '#059669',
-                            borderRadius: 6
-                        },
-                        {
-                            label: 'Sisa Target (Rp 3.750.000)',
-                            data: [3750000],
-                            backgroundColor: '#ffedd5',
-                            borderColor: '#ea580c',
-                            borderWidth: 1,
-                            borderRadius: 6
-                        }
-                    ]
-                },
-                options: {
-                    indexAxis: 'y',
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        x: {
-                            stacked: true,
-                            max: 15000000,
-                            ticks: {
-                                callback: function(value) {
-                                    return 'Rp ' + (value / 1000000).toFixed(1) + 'Jt';
-                                },
-                                font: { family: 'Plus Jakarta Sans', size: 10 }
-                            }
-                        },
-                        y: {
-                            stacked: true,
-                            display: false
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: { font: { family: 'Plus Jakarta Sans', size: 11 } }
-                        },
-                        tooltip: standardTooltipCallback.plugins.tooltip
-                    }
-                }
-            });
-
-            const rawMonths = ['Mei 2026', 'Juni 2026', 'Juli 2026', 'Agustus 2026'];
-            const processedMonths = rawMonths.map(m => wrapLabel(m, 16));
-
-            const ctxHistory = document.getElementById('historyChart').getContext('2d');
-            new Chart(ctxHistory, {
-                type: 'bar',
-                data: {
-                    labels: processedMonths,
-                    datasets: [
-                        {
-                            label: 'Total Donasi Masuk',
-                            data: [12500000, 14200000, 16000000, 11250000],
-                            backgroundColor: '#059669',
-                            borderRadius: 4
-                        },
-                        {
-                            label: 'Dana Disalurkan (Rantang Kasih)',
-                            data: [12000000, 14000000, 15500000, 10000000],
-                            backgroundColor: '#0284c7',
-                            borderRadius: 4
-                        },
-                        {
-                            label: 'Sisa Saldo Kas',
-                            data: [500000, 700000, 1000000, 2250000],
-                            backgroundColor: '#cbd5e1',
-                            borderRadius: 4
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            ticks: {
-                                callback: function(value) {
-                                    return 'Rp ' + (value / 1000000).toFixed(1) + 'Jt';
-                                },
-                                font: { family: 'Plus Jakarta Sans', size: 10 }
-                            }
-                        },
-                        x: {
-                            ticks: { font: { family: 'Plus Jakarta Sans', size: 10 } }
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: { font: { family: 'Plus Jakarta Sans', size: 11 }, boxWidth: 12 }
-                        },
-                        tooltip: standardTooltipCallback.plugins.tooltip
-                    }
-                }
-            });
-
-        });
-
-        function setImpact(amount) {
-            const btn20 = document.getElementById('btn-20k');
-            const btn50 = document.getElementById('btn-50k');
-            const btn100 = document.getElementById('btn-100k');
-
-            const activeClass = "bg-emerald-500 text-white border-emerald-400";
-            const inactiveClass = "bg-white/10 hover:bg-white/20 text-white border-white/10";
-
-            btn20.className = `calc-btn font-bold py-2 rounded-xl text-xs transition border ${amount === 20000 ? activeClass : inactiveClass}`;
-            btn50.className = `calc-btn font-bold py-2 rounded-xl text-xs transition border ${amount === 50000 ? activeClass : inactiveClass}`;
-            btn100.className = `calc-btn font-bold py-2 rounded-xl text-xs transition border ${amount === 100000 ? activeClass : inactiveClass}`;
-
-            const mealsEl = document.getElementById('impact-meals');
-            const descEl = document.getElementById('impact-desc');
-            const targetEl = document.getElementById('impact-target');
-
-            if (amount === 20000) {
-                mealsEl.textContent = "1 Porsi Lengkap";
-                descEl.textContent = "Olahan Pangan Lokal & Nutrisi Seimbang";
-                targetEl.textContent = "1 Orang / Warga Membutuhkan";
-            } else if (amount === 50000) {
-                mealsEl.textContent = "2,5 Porsi Lengkap";
-                descEl.textContent = "Sajian Kuliner Nusantara Sehat & Bergizi";
-                targetEl.textContent = "2-3 Warga Membutuhkan";
-            } else if (amount === 100000) {
-                mealsEl.textContent = "5 Porsi Lengkap";
-                descEl.textContent = "Paket Sajian Pangan Lokal Nusantara Komplit";
-                targetEl.textContent = "5 Orang / 1 Keluarga Rentan";
-            }
-        }
-
-        function toggleAuditDetails() {
-            const table = document.getElementById('audit-table');
-            table.scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
 </body>
 </html>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Document Metadata -->
+    <string name="app_title">Transparansi Donasi BBS - Ke Mana Perginya Rp20.000 Kamu?</string>
+
+    <!-- Header Navigation -->
+    <string name="header_logo_text">BBS</string>
+    <string name="header_subtitle">Transparansi Donasi Relawan</string>
+    <string name="header_cta_button">Cek Dampak Donasi ➔</string>
+
+    <!-- Hero Section -->
+    <string name="hero_badge">🌱 Inisiatif Sosial BBS &amp; Rantang Kasih</string>
+    <string name="hero_title_prefix">Ke Mana Perginya Donasi </string>
+    <string name="hero_title_highlight">Rp20.000</string>
+    <string name="hero_title_suffix"> Kamu?</string>
+    <string name="hero_description_prefix">Lebih dari sekadar aksi bersih-bersih lingkungan, kepedulianmu mendukung pengenalan dan penggunaan </string>
+    <string name="hero_description_highlight">pangan lokal serta sejarah kuliner Nusantara</string>
+    <string name="hero_description_suffix"> untuk disalurkan kepada masyarakat yang membutuhkan.</string>
+
+    <!-- Hero Stat Badges -->
+    <string name="stat_donation_status_label">Status Donasi</string>
+    <string name="stat_donation_status_value">100% Sukarela</string>
+    <string name="stat_donation_status_desc">Tanpa Paksaan / Syarat</string>
+
+    <string name="stat_reg_fee_label">Biaya Registrasi</string>
+    <string name="stat_reg_fee_value">Rp 0 (GRATIS)</string>
+    <string name="stat_reg_fee_desc">Bisa Ikut Walau Rp0</string>
+
+    <string name="stat_program_mission_label">Misi Program</string>
+    <string name="stat_program_mission_value">Rantang Kasih</string>
+    <string name="stat_program_mission_desc">Pangan Lokal Nusantara</string>
+
+    <string name="stat_report_cycle_label">Siklus Laporan</string>
+    <string name="stat_report_cycle_value">Setiap Bulan</string>
+    <string name="stat_report_cycle_desc">Transparan &amp; Terbuka</string>
+
+    <!-- Myths vs Facts Section -->
+    <string name="myths_facts_title">Klarifikasi Penting: Mitos vs Fakta</string>
+    <string name="myths_facts_subtitle">Kami mendengar pertanyaan relawan: &lt;i&gt;&quot;Kok bersih-bersih bayar?&quot;&lt;/i&gt; Mari kita luruskan kesalahpahaman ini agar setiap aksi kita dilandasi rasa percaya.</string>
+
+    <string name="myths_heading">Mitos / Kesalahan Persepsi</string>
+    <string name="myth_item_1">Rp20.000 adalah tiket masuk atau biaya wajib pendaftaran aksi bersih-bersih.</string>
+    <string name="myth_item_2">Relawan yang tidak berdonasi tidak diperbolehkan bergabung dalam kegiatan.</string>
+    <string name="myth_item_3">Uang donasi digunakan untuk komersial atau operasional internal panitia.</string>
+
+    <string name="facts_heading">Fakta Sebenarnya</string>
+    <string name="fact_item_1">&lt;strong&gt;Aksi Bersih-Bersih 100% GRATIS.&lt;/strong&gt; Siapa saja boleh ikut tanpa syarat membayar.</string>
+    <string name="fact_item_2">Rp20.000 via QRIS adalah &lt;strong&gt;donasi sukarela terpisah&lt;/strong&gt; untuk disalurkan ke program sosial lain.</string>
+    <string name="fact_item_3">100% donasi dialokasikan untuk &lt;strong&gt;Program Rantang Kasih&lt;/strong&gt; (Pangan lokal Nusantara bagi masyarakat yang membutuhkan).</string>
+
+    <!-- Mission & Budget Allocation Section -->
+    <string name="mission_badge">Misi Utama Program</string>
+    <string name="mission_title">Program Rantang Kasih</string>
+    <string name="mission_description">&lt;strong&gt;Rantang Kasih&lt;/strong&gt; adalah inisiatif untuk mendukung pengenalan dan penggunaan &lt;strong class=&quot;text-slate-900&quot;&gt;pangan lokal serta sejarah kuliner Nusantara&lt;/strong&gt;. Olahan pangan bergizi ini disalurkan secara langsung kepada masyarakat yang membutuhkan.</string>
+    
+    <string name="beneficiaries_title">Penerima Manfaat Program:</string>
+    <string name="beneficiary_item_1">🤝 Masyarakat yang Membutuhkan</string>
+    <string name="beneficiary_item_2">🥗 Keluarga Rawan Pangan &amp; Gizi</string>
+    <string name="beneficiary_item_3">👨‍👩‍👧‍👦 Pekerja Informal &amp; Rentan</string>
+
+    <string name="transparency_commitment_title">Komitmen Transparansi Alokasi:</string>
+    <string name="transparency_commitment_desc">Setidaknya 85% dana dialokasikan langsung untuk bahan baku pangan lokal Nusantara dan kemasan ramah lingkungan, 10% logistik penyaluran, serta 5% cadangan darurat sosial.</string>
+
+    <string name="allocation_chart_title">Rincian Alokasi Dana Rantang Kasih (%)</string>
+
+    <!-- Impact Calculator & Progress Section -->
+    <string name="progress_desc">Berikut adalah ketercapaian target penggalangan dana Rantang Kasih untuk penyaluran pangan lokal bulan ini.</string>
+    <string name="progress_target_label">Target Bulan Ini</string>
+    <string name="progress_target_value">Rp 15.000.000</string>
+    <string name="progress_collected_label">Terkumpul</string>
+    <string name="progress_collected_value">Rp 11.250.000</string>
+    <string name="progress_remaining_label">Kekurangan</string>
+    <string name="progress_remaining_value">Rp 3.750.000</string>
+
+    <string name="calc_badge">Kalkulator Dampak</string>
+    <string name="calc_title">Simulasi Nyata Donasimu</string>
+    <string name="calc_subtitle">Pilih nominal donasi untuk melihat seberapa besar porsi sajian pangan lokal Nusantara yang kamu kontribusikan bagi masyarakat yang membutuhkan.</string>
+    <string name="calc_label_select">Pilih Nominal Donasi:</string>
+    <string name="calc_label_meals">Porsi Kuliner Pangan Lokal:</string>
+    <string name="calc_default_meals">1 Porsi Lengkap</string>
+    <string name="calc_label_desc">Menu Kuliner Nusantara:</string>
+    <string name="calc_default_desc">Olahan Pangan Lokal &amp; Nutrisi Seimbang</string>
+    <string name="calc_label_target">Penerima Manfaat:</string>
+    <string name="calc_default_target">1 Orang / Warga Membutuhkan</string>
+    <string name="calc_disclaimer">*Estimasi standar biaya 1 porsi makanan berbasis pangan lokal Nusantara = Rp20.000.</string>
+
+    <!-- Historical Transparency Report Section -->
+    <string name="history_badge">Rekapitulasi Bulanan</string>
+    <string name="history_title">Laporan Historis Transparansi</string>
+    <string name="history_subtitle">Rekap bulanan alokasi donasi relawan dan sisa saldo terdistribusi secara terbuka.</string>
+    <string name="history_tab_chart">Grafik Historis</string>
+    <string name="history_tab_audit">Rincian Catatan</string>
+
+    <!-- Audit Table Headers -->
+    <string name="table_header_period">Periode</string>
+    <string name="table_header_total_collected">Total Terkumpul</string>
+    <string name="table_header_allocation">Alokasi Rantang Kasih</string>
+    <string name="table_header_portions">Porsi Disalurkan</string>
+    <string name="table_header_balance">Sisa Saldo Kas</string>
+
+    <!-- Donation Journey Section -->
+    <string name="journey_badge">Alur Transparansi</string>
+    <string name="journey_title">Siklus Perjalanan Donasimu</string>
+    <string name="journey_subtitle">Bagaimana donasi sukarela Rp20.000 mengalir dari QRIS hingga diolah menjadi kuliner Nusantara bergizi bagi warga yang membutuhkan.</string>
+
+    <string name="journey_step_1_title">Donasi QRIS</string>
+    <string name="journey_step_1_desc">Relawan melakukan scan QRIS Rp20.000 secara sukarela saat pendaftaran atau di lokasi.</string>
+    <string name="journey_step_1_tag">Opsional &amp; Sukarela</string>
+
+    <string name="journey_step_2_title">Pencatatan Kas</string>
+    <string name="journey_step_2_desc">Dana terdata otomatis masuk ke dalam rekening khusus penggalangan sosial BBS.</string>
+    <string name="journey_step_2_tag">Kumpulan Rekening Sosial</string>
+
+    <string name="journey_step_3_title">Olahan Pangan Lokal</string>
+    <string name="journey_step_3_desc">Pengadaan bahan segar pangan lokal &amp; pengolahan hidangan sejarah kuliner Nusantara.</string>
+    <string name="journey_step_3_tag">Resep Kuliner Nusantara</string>
+
+    <string name="journey_step_4_title">Penyaluran Warga</string>
+    <string name="journey_step_4_desc">Distribusi langsung makanan siap santap kepada masyarakat yang membutuhkan.</string>
+    <string name="journey_step_4_tag">Langsung Tepat Sasaran</string>
+
+    <string name="journey_step_5_title">Laporan Publik</string>
+    <string name="journey_step_5_desc">Publikasi rekapitulasi dana &amp; foto kegiatan di WhatsApp grup relawan &amp; media sosial.</string>
+    <string name="journey_step_5_tag">Rekap Tiap Bulan</string>
+
+    <!-- Trust & Official QRIS Info Section -->
+    <string name="trust_badge">Komitmen Kepercayaan</string>
+    <string name="trust_title">Bersama BBS, Transparansi adalah Prioritas Utama</string>
+    <string name="trust_description">Kami percaya bahwa aksi sosial yang bertahan lama dibangun di atas kepercayaan relawan. Kami berkomitmen menyajikan data sejelas mungkin agar kamu selalu bangga menjadi bagian dari perubahan positif.</string>
+    <string name="trust_cta_button">Bergabung Relawan di Indorelawan ➔</string>
+
+    <string name="qris_card_title">Informasi Donasi Resmi</string>
+    <string name="qris_card_tag">QRIS NBO / BBS</string>
+    <string name="qris_code_placeholder">[ QRIS CODE OFFICIAL BBS ]</string>
+    <string name="qris_account_name">Scan QRIS atas nama: Inisiatif Sosial BBS</string>
+    <string name="qris_suggested_amount">Nominal Disarankan: Rp 20.000 (Sukarela)</string>
+    <string name="qris_note_1">Tidak berdonasi? Kamu &lt;strong&gt;tetap disambut hangat&lt;/strong&gt; untuk ikut aksi bersih-bersih!</string>
+    <string name="qris_note_2">Laporan lengkap dikirim berkala di WhatsApp Group Relawan.</string>
+
+    <!-- Footer -->
+    <string name="footer_title">Bersama Bersih-Bersih (BBS) &amp; Program Rantang Kasih</string>
+    <string name="footer_description">Bersihkan Lingkungan, Lestarikan Pangan Lokal Nusantara — Didukung penuh oleh Relawan Peduli Lingkungan &amp; Sosial.</string>
+    <string name="footer_copyright">© 2026 BBS Community. Hak Cipta Dilindungi Undang-Undang.</string>
+</resources>
