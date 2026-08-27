@@ -81,3 +81,37 @@ bbs/
 - **Styling**: Tailwind CSS & Vanilla CSS
 - **Data Visualization**: Chart.js
 - **Localization / Resources**: XML (`assets/string.xml`)
+
+---
+
+## 🌿 Git Branching Strategy & Rules
+
+To keep the development process clean, predictable, and simple, we adhere to a **2-Branch Workflow**:
+
+```
+[development] ──(work / test)──> [PR / Merge] ──> [main] (Production / Live)
+```
+
+### 1. Core Branches
+
+| Branch | Purpose | Rules / Constraints |
+| :--- | :--- | :--- |
+| **`main`** | **Production & Live Deployment** | - Always stable and deployable.<br>- Serves live deployment (e.g. GitHub Pages).<br>- **No direct commits** for untested features. Only merges from `development` or emergency hotfixes. |
+| **`development`** | **Active Work & Integration** | - Default working branch.<br>- New features, refactoring, and general updates are committed/tested here first.<br>- Merged into `main` once tested and verified. |
+
+### 2. Workflow Guidelines
+
+1. **Daily Development**:
+   - Work and make changes on `development`.
+   - Verify changes locally using `bun dev` before pushing.
+2. **Releasing to Production**:
+   - Merge `development` into `main` when features are ready to go live.
+   ```bash
+   git checkout main
+   git merge development
+   git push origin main
+   ```
+3. **Optional Extensions (When Needed)**:
+   - `feature/<name>`: For large or experimental features requiring isolated work before merging back into `development`.
+   - `hotfix/<name>`: For urgent production bug fixes branched directly off `main` and backported to `development`.
+
