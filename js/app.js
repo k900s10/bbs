@@ -1,4 +1,5 @@
 import { StringResourceLoader } from './services/StringResourceLoader.js';
+import { DonationService } from './services/DonationService.js';
 import { AllocationChart } from './charts/AllocationChart.js';
 import { ProgressChart } from './charts/ProgressChart.js';
 import { HistoryChart } from './charts/HistoryChart.js';
@@ -12,8 +13,11 @@ import { NavigationUI } from './ui/NavigationUI.js';
  */
 class App {
     static async init() {
-        // 0. Load String Resources from assets/string.xml and bind to DOM
-        await StringResourceLoader.load('assets/string.xml');
+        // 0. Load String Resources and Live Supabase Data concurrently
+        await Promise.all([
+            StringResourceLoader.load('assets/string.xml'),
+            DonationService.fetchAllData('rantang-kasih')
+        ]);
         StringResourceLoader.applyToDOM();
 
         // 1. Initialize UI Interactions & Navigation
