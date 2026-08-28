@@ -129,14 +129,12 @@ bbs/
     ├── config/
     │   ├── supabase.js            # Supabase client initialized via window.ENV
     │   └── tailwind.config.js     # Tailwind theme & color token definitions
-    ├── data/                      # Fallback / Initial Static Data
-    │   ├── allocationData.js      # Budget allocation fallback dataset
-    │   ├── impactTiers.js         # Predefined impact tiers & meal constants
-    │   └── historyData.js         # Campaign targets & monthly audit fallbacks
+    ├── data/                      # Static Application Constants
+    │   └── impactTiers.js         # Predefined impact tiers & meal constants
     ├── services/                  # Business Logic Layer (SRP)
     │   ├── StringResourceLoader.js# XML resource parser & DOM token binder
     │   ├── ImpactService.js       # Calculates meal portions & recipient impact
-    │   └── DonationService.js     # Syncs with Supabase, formats currency, handles fallbacks
+    │   └── DonationService.js     # Live Supabase data sync & currency formatters
     ├── charts/                    # Charting Layer (LSP & SRP)
     │   ├── ChartService.js        # Core charting helpers (wrapLabel, tooltips, typography)
     │   ├── AllocationChart.js     # Budget allocation doughnut chart component
