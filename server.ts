@@ -24,6 +24,21 @@ const server = Bun.serve({
     const url = new URL(req.url);
     let pathname = decodeURIComponent(url.pathname);
 
+    // Provide dynamic Supabase configuration from environment variables
+    if (pathname === "/js/config/env.js") {
+      const envScript = `window.ENV = ${JSON.stringify({
+        SUPABASE_URL: process.env.SUPABASE_URL || "",
+        SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY || "",
+      })};`;
+
+      return new Response(envScript, {
+        headers: {
+          "Content-Type": "text/javascript; charset=utf-8",
+          "Cache-Control": "no-cache",
+        },
+      });
+    }
+
     if (pathname === "/") {
       pathname = "/index.html";
     }

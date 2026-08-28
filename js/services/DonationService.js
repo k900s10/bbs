@@ -1,30 +1,100 @@
+import { supabase } from '../config/supabase.js';
 import { ALLOCATION_DATA } from '../data/allocationData.js';
 import { CURRENT_CAMPAIGN, MONTHLY_HISTORY } from '../data/historyData.js';
 
 /**
  * DonationService
- * Handles donation data queries, statistical aggregations, and currency formatting.
+ * Coordinates live data synchronization with Supabase and provides resilient fallbacks.
  */
 export class DonationService {
+    static _allocations = [...ALLOCATION_DATA];
+    static _currentCampaign = { ...CURRENT_CAMPAIGN };
+    static _monthlyHistory = [...MONTHLY_HISTORY];
+    static _isInitialized = false;
+
+    /**
+     * Fetch all remote data from Supabase in parallel
+     */
+    static async fetchAllData(programId = 'rantang-kasih') {
+        try {
+            const [allocRes, campRes, auditRes] = await Promise.allSettled([
+                supabase
+                    .from('budget_allocations')
+                    .select('*')
+                    .eq('program_id', programId)
+                    .order('display_order', { ascending: true }),
+                supabase
+                    .from('campaigns')
+                    .select('*')
+                    .eq('program_id', programId)
+                    .eq('is_current', true)
+                    .maybeSingle(),
+                supabase
+                    .from('monthly_audits')
+                    .select('*')
+                    .eq('program_id', programId)
+                    .order('display_order', { ascending: true })
+            ]);
+
+            // 1. Process Budget Allocations
+            if (allocRes.status === 'fulfilled' && allocRes.value.data && allocRes.value.data.length > 0) {
+                this._allocations = allocRes.value.data.map(item => ({
+                    label: item.label,
+                    percentage: Number(item.percentage),
+                    color: item.color
+                }));
+            }
+
+            // 2. Process Current Campaign Metrics
+            if (campRes.status === 'fulfilled' && campRes.value.data) {
+                const c = campRes.value.data;
+                this._currentCampaign = {
+                    month: c.period_name,
+                    targetAmount: Number(c.target_amount),
+                    collectedAmount: Number(c.collected_amount),
+                    get remainingAmount() {
+                        return Math.max(0, this.targetAmount - this.collectedAmount);
+                    }
+                };
+            }
+
+            // 3. Process Monthly Transparency Audits
+            if (auditRes.status === 'fulfilled' && auditRes.value.data && auditRes.value.data.length > 0) {
+                this._monthlyHistory = auditRes.value.data.map(item => ({
+                    period: item.period,
+                    totalCollected: Number(item.total_collected),
+                    allocationRantangKasih: Number(item.total_disbursed),
+                    portionsDelivered: item.impact_summary,
+                    balance: Number(item.balance !== undefined ? item.balance : (item.total_collected - item.total_disbursed)),
+                    isCurrent: Boolean(item.is_current)
+                }));
+            }
+
+            this._isInitialized = true;
+        } catch (err) {
+            console.warn('[DonationService] Supabase sync fallback to offline defaults:', err);
+        }
+    }
+
     /**
      * Get allocation data breakdown
      */
     static getAllocationData() {
-        return ALLOCATION_DATA;
+        return this._allocations;
     }
 
     /**
      * Get current month campaign metrics
      */
     static getCurrentCampaign() {
-        return CURRENT_CAMPAIGN;
+        return this._currentCampaign;
     }
 
     /**
      * Get monthly historical audit records
      */
     static getMonthlyHistory() {
-        return MONTHLY_HISTORY;
+        return this._monthlyHistory;
     }
 
     /**
