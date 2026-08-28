@@ -1,47 +1,52 @@
-name: Deploy to GitHub Pages
+name: Build & Deploy BBS
 
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  # optional: you can also trigger on tags
+  # tags:
+  #   - 'v*'
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build-and-deploy:
     runs-on: ubuntu-latest
+    environment: production   # <-- the environment that holds your public secrets
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Generate runtime environment configuration (js/config/env.js)
+      - name: Set up Bun (or Node)
+        # Bun is used locally; switch to Node if you prefer.
+        run: |
+          curl -fsSL https://bun.sh/install | bash
+          echo "$HOME/.bun/bin" >> $GITHUB_PATH
+
+      - name: Install dependencies
+        run: bun install
+
+      # ---------- Generate public env.js from GitHub secrets ----------
+      - name: Create js/config/env.js
         run: |
           mkdir -p js/config
-          cat << 'EOF' > js/config/env.js
+          cat <<'EOF' > js/config/env.js
           window.ENV = {
-            SUPABASE_URL: "${{ vars.SUPABASE_URL || secrets.SUPABASE_URL }}",
-            SUPABASE_ANON_KEY: "${{ vars.SUPABASE_ANON_KEY || secrets.SUPABASE_ANON_KEY }}"
+            SUPABASE_URL: "${{ secrets.SUPABASE_URL }}",
+            SUPABASE_ANON_KEY: "${{ secrets.SUPABASE_ANON_KEY }}",
+            // Add more public variables here if needed, e.g.:
+            // APP_TITLE: "${{ secrets.APP_TITLE }}",
           };
           EOF
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
+      # ---------- Build the static site (optional) ----------
+      - name: Build site
+        run: |
+          # If you have a build script, replace the following line.
+          # For a pure‑HTML site you can skip this step.
+          bun run build || echo "No build script – skipping"
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: '.'
-
+      # ---------- Deploy to GitHub Pages ----------
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist   # Adjust if your built files are elsewhere
