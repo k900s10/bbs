@@ -1,15 +1,20 @@
 import { supabase } from '../config/supabase.js';
-import { ALLOCATION_DATA } from '../data/allocationData.js';
-import { CURRENT_CAMPAIGN, MONTHLY_HISTORY } from '../data/historyData.js';
 
 /**
  * DonationService
- * Coordinates live data synchronization with Supabase and provides resilient fallbacks.
+ * Coordinates live data synchronization with Supabase.
  */
 export class DonationService {
-    static _allocations = [...ALLOCATION_DATA];
-    static _currentCampaign = { ...CURRENT_CAMPAIGN };
-    static _monthlyHistory = [...MONTHLY_HISTORY];
+    static _allocations = [];
+    static _currentCampaign = {
+        month: '',
+        targetAmount: 0,
+        collectedAmount: 0,
+        get remainingAmount() {
+            return Math.max(0, this.targetAmount - this.collectedAmount);
+        }
+    };
+    static _monthlyHistory = [];
     static _isInitialized = false;
 
     /**
@@ -72,7 +77,7 @@ export class DonationService {
 
             this._isInitialized = true;
         } catch (err) {
-            console.warn('[DonationService] Supabase sync fallback to offline defaults:', err);
+            console.error('[DonationService] Error syncing live data from Supabase:', err);
         }
     }
 

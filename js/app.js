@@ -48,6 +48,18 @@ class App {
             progressChart.render();
         }
 
+        // 3. Update Progress Summary Stats dynamically from live campaign
+        const currentCampaign = DonationService.getCurrentCampaign();
+        if (currentCampaign.month) {
+            const targetEl = document.getElementById('progress-target-val');
+            const collectedEl = document.getElementById('progress-collected-val');
+            const remainingEl = document.getElementById('progress-remaining-val');
+
+            if (targetEl) targetEl.textContent = DonationService.formatCurrency(currentCampaign.targetAmount);
+            if (collectedEl) collectedEl.textContent = DonationService.formatCurrency(currentCampaign.collectedAmount);
+            if (remainingEl) remainingEl.textContent = DonationService.formatCurrency(currentCampaign.remainingAmount);
+        }
+
         const historyCanvas = document.getElementById('historyChart');
         if (historyCanvas) {
             const historyChart = new HistoryChart(historyCanvas);
