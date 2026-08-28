@@ -42,16 +42,11 @@ jobs:
           };
           EOF
 
-      # ---------- Build the static site (optional) ----------
-      - name: Build site
-        run: |
-          # If you have a build script, replace the following line.
-          # For a pure‑HTML site you can skip this step.
-          bun run build || echo "No build script – skipping"
+      # ---------- No build step: this is a pure-HTML static site ----------
 
       # ---------- Deploy to GitHub Pages ----------
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist   # Adjust if your built files are elsewhere
+          publish_dir: .        # Publish the repo root (pure-HTML, no build step)
